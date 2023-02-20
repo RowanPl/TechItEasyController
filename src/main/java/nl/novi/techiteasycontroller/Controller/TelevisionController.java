@@ -1,12 +1,22 @@
 package nl.novi.techiteasycontroller.Controller;
 
 import nl.novi.techiteasycontroller.Exceptions.RecordNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 public class TelevisionController {
+
+
+    ArrayList<String> televisionDatabase = new ArrayList<String>();
+
+    @GetMapping("television/{find}")
+   public String findTvByIndexInArray(@PathVariable int find){
+       return this.televisionDatabase.get(find);
+    }
+
 
     @GetMapping("television")
     public ResponseEntity<String> getAllTelevisions(){
@@ -28,7 +38,8 @@ public class TelevisionController {
 
     @PutMapping("television/{id}")
     public ResponseEntity<String> updateTvList(@PathVariable int id, @RequestParam String name){
-        return ResponseEntity.noContent().build();
+        this.televisionDatabase.add(name);
+       return ResponseEntity.noContent().build();
     }
 
     @PostMapping("television")
@@ -40,6 +51,7 @@ public class TelevisionController {
     public ResponseEntity<String> deleteTvById(@PathVariable int id){
         return ResponseEntity.noContent().build();
     }
+
 
 
 }
