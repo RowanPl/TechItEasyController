@@ -1,6 +1,5 @@
 package nl.novi.techiteasycontroller.Repository;
 
-import jakarta.persistence.Id;
 import jakarta.transaction.Transactional;
 import nl.novi.techiteasycontroller.Model.Television;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,8 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.lang.reflect.Type;
-import java.util.Optional;
+import java.util.List;
 
 public interface TelevisionRepository extends JpaRepository<Television, Long> {
     @Transactional
@@ -17,7 +15,7 @@ public interface TelevisionRepository extends JpaRepository<Television, Long> {
     @Query("delete from Television t where t.name = :name ")
     void deleteByName(@Param("name")String name);
 
-    Optional<Television> findByName(String name);
+    List<Television> findByName(String name);
 
 
 }
