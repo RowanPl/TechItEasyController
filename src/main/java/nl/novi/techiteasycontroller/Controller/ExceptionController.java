@@ -23,7 +23,7 @@ public class ExceptionController {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(value = RecordNotFoundException.class)
+    @ExceptionHandler(value = DuplicateName.class)
     public ResponseEntity<Object> exception(DuplicateName exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }

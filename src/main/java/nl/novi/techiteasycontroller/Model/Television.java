@@ -1,9 +1,9 @@
 package nl.novi.techiteasycontroller.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import javax.naming.Name;
+import java.util.List;
 
 @Entity
 @Table(name = "televisions")
@@ -29,6 +29,19 @@ public class Television {
     private int originalStock;
     private int sold;
 
+    @OneToOne
+    private RemoteController remoteController;
+
+
+    @ManyToMany
+    @JoinTable(name = "tussen_tabel",
+    joinColumns = @JoinColumn(name = "tv_Id"),
+    inverseJoinColumns = @JoinColumn(name = "wb_id"))
+    private List<WallBracket> wallBrackets;
+
+
+    @OneToMany(mappedBy = "television")
+    private List<TelevisionWallbrackets> televisions;
 
     public static void television() {
 
@@ -169,5 +182,25 @@ public class Television {
 
     public void setSold(int sold) {
         this.sold = sold;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getScreenType() {
+        return screenType;
+    }
+
+    public void setScreenType(String screenType) {
+        this.screenType = screenType;
+    }
+
+    public RemoteController getRemoteController() {
+        return remoteController;
+    }
+
+    public void setRemoteController(RemoteController remoteController) {
+        this.remoteController = remoteController;
     }
 }
