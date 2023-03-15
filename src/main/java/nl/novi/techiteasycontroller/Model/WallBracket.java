@@ -19,6 +19,6 @@ public class WallBracket {
     @ManyToMany (mappedBy = "wallBrackets")
     private List<Television> televisions;
 
-    @OneToMany(mappedBy= "wallbracket")
+    @OneToMany(mappedBy= "wallBracket")
     private List<TelevisionWallbrackets> wallbracket;
 }
