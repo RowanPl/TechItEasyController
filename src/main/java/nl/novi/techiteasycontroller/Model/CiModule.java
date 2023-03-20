@@ -1,9 +1,8 @@
 package nl.novi.techiteasycontroller.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Ci_Module")
@@ -17,5 +16,7 @@ public class CiModule {
     private  String type;
     private double price;
 
+    @OneToMany(mappedBy = "CiModule")
+    private List<Television> television;
 
 }
