@@ -2,8 +2,8 @@ package nl.novi.techiteasycontroller.Controller;
 
 
 import nl.novi.techiteasycontroller.Dto.Input.TelevisionInputDto;
+
 import nl.novi.techiteasycontroller.Dto.Input.WallBracketInputDto;
-import nl.novi.techiteasycontroller.Model.TelevisionWallbrackets;
 import nl.novi.techiteasycontroller.Services.WallbracketService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +14,11 @@ import java.util.List;
 public class WallBracketController {
 
         private final WallbracketService wallBracketService;
-        private final TelevisionWallbrackets televisionWallBracketService;
+        private final TelevisionWallBracketController televisionWallBracketService;
         public WallBracketController(WallbracketService wallBracketService,
-                                     TelevisionWallbrackets televisionWallBracketService) {
+                                     TelevisionWallBracketController television) {
             this.wallBracketService = wallBracketService;
-            this.televisionWallBracketService = televisionWallBracketService;
+            this.televisionWallBracketService = television;
         }
 
         @GetMapping("/wallbrackets")

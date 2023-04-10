@@ -1,5 +1,6 @@
 package nl.novi.techiteasycontroller.Services;
 
+import nl.novi.techiteasycontroller.Dto.Input.TelevisionInputDto;
 import nl.novi.techiteasycontroller.Dto.Output.TelevisionOutputDto;
 import nl.novi.techiteasycontroller.Exceptions.DuplicateName;
 import nl.novi.techiteasycontroller.Exceptions.RecordNotFoundException;
@@ -47,7 +48,7 @@ public class TelevisionService {
         }
     }
 
-    public Long createTelevision(TelevisionOutputDto tdto){
+    public Long createTelevision(TelevisionInputDto tdto){
 
         List<Television> existingTelevision = repos.findByName(tdto.name);
         if (!existingTelevision.isEmpty()){

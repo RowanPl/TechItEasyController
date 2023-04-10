@@ -203,4 +203,22 @@ public class Television {
     public void setRemoteController(RemoteController remoteController) {
         this.remoteController = remoteController;
     }
+
+    public List<WallBracket> getWallBrackets() {
+        return wallBrackets;
+    }
+
+    public void setWallBrackets(List<WallBracket> wallBrackets) {
+        this.wallBrackets = wallBrackets;
+    }
+
+    public List<TelevisionWallbrackets> getTelevisions() {
+        return televisions;
+    }
+
+    public void setTelevisions(List<TelevisionWallbrackets> televisions) {
+        this.televisions = televisions;
+    }
+
+
 }

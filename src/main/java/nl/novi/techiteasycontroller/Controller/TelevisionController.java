@@ -1,5 +1,6 @@
 package nl.novi.techiteasycontroller.Controller;
 
+import nl.novi.techiteasycontroller.Dto.Input.TelevisionInputDto;
 import nl.novi.techiteasycontroller.Dto.Output.TelevisionOutputDto;
 import nl.novi.techiteasycontroller.Exceptions.RecordNotFoundException;
 import nl.novi.techiteasycontroller.Model.Television;
@@ -33,7 +34,7 @@ public class TelevisionController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> createTelevision(@RequestBody TelevisionOutputDto tdto, BindingResult br) {
+    public ResponseEntity<Object> createTelevision(@RequestBody TelevisionInputDto tdto, BindingResult br) {
 
         if (br.hasFieldErrors()) {
             StringBuilder sb = new StringBuilder();
